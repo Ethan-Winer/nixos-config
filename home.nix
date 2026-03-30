@@ -78,16 +78,22 @@ in {
 
     home.packages = with pkgs; [
 	    xwayland-satellite
-        # catppuccin-cursors.mochaDark
         swaybg
-        reaper
         playerctl
         pavucontrol
         yt-dlp
         gh
+        readest
 
         cava
         asciiquarium
+
+        # Music
+        # winetricks
+        wineWowPackages.yabridge
+        yabridge
+        yabridgectl
+        reaper
     ];
 
     programs.spicetify = {
@@ -138,7 +144,7 @@ in {
     # Symlinks
 
     # Firefox Theme
-    home.file.".mozilla/firefox/default/extcatppuccin_mocha_lavender_git-2.0.xpi".source = ./configs/firefox/catppuccin_mocha_lavender_git-2.0.xpi;
+    # home.file.".mozilla/firefox/default/extcatppuccin_mocha_lavender_git-2.0.xpi".source = ./configs/firefox/catppuccin_mocha_lavender_git-2.0.xpi;
 
     # xdg.configFile."niri/config.kdl".source = ./configs/niri/config.kdl;
     home.file.".config/niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "/home/ethan/nixos/configs/niri/config.kdl";
