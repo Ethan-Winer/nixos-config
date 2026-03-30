@@ -1,0 +1,254 @@
+@define-color color #b4befe;
+/* @define-color background #292c3c; */
+@define-color highlight #f5e0dc;
+@define-color critical #f38ba8;
+
+
+* {
+  border: none;
+  border-radius: 10px;
+  font-family: "JetbrainsMono Nerd Font";
+  font-size: 18px;
+  min-height: 0px;
+  background: transparent; 
+  color: @color;
+   border-color: @color;
+}
+
+window#waybar {
+  background: transparent;
+}
+
+
+#network {
+  margin-top: 10px;
+  margin-left: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 0px;
+  border-radius: 10px;
+  /* transition: none; */
+  /* background: @background; */
+  /* color: @accent; */
+  border-bottom: 3px;
+  border-style: solid;
+  /* border-color: #bd93f9; */
+  transition: 0.1s linear;
+  /* animation: ease-out; */
+  font-size: 35px;
+}
+
+#network:hover {
+  /* color: #292c3c;
+  background: #bd93f9; */
+  margin-top: 4px;
+  color: @highlight;
+  border-color: @highlight;
+}
+
+#battery {
+  margin-top: 10px;
+  margin-left: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 0px;
+  border-radius: 10px;
+  /* transition: none; */
+  /* background: #292c3c; */
+  /* color: #bd93f9; */
+  border-bottom: 3px;
+  border-style: solid;
+  /* border-color: #bd93f9; */
+  /* transition: 0.3s; */
+}
+
+#battery:hover {
+  /* color: #292c3c;
+  background: #bd93f9; */
+  color: @highlight;
+  border-color: @highlight;
+}
+
+/* #backlight:hover {
+  color: #292c3c;
+  background: #bd93f9;
+}
+
+#backlight {
+  margin-top: 10px;
+  margin-left: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 0px;
+  border-radius: 10px;
+  background: #292c3c;
+  color: #bd93f9;
+  border-bottom: 3px;
+  border-style: solid;
+  border-color: #bd93f9;
+  transition: 0.3s;
+} */
+
+
+#wireplumber {
+  margin-top: 10px;
+  margin-left: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 0px;
+  border-radius: 10px;
+  border-bottom: 3px;
+  border-style: solid;
+  transition: 0.3s;
+
+  font-size: 35px;
+  transition: 0.1s linear;
+}
+
+#wireplumber:hover {
+  color: @highlight;
+  border-color: @highlight;
+  margin-top: 4px;
+}
+
+#wireplumber.muted {
+  color: @critical;
+  border-color: @critical;
+  border-bottom: 3px;
+  border-style: solid;
+  transition: 0.1s linear;
+}
+
+#wireplumber.muted:hover {
+  color: @highlihgt;
+  border-color: @highlihgt;
+
+}
+
+#clock {
+  margin-top: 10px;
+  margin-left: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 0px;
+  border-radius: 10px;
+  border-bottom: 3px;
+  border-style: solid;
+  transition: 0.1s linear;
+}
+
+#clock:hover {
+  color: @highlight;
+  border-color: @highlight;
+  margin-top: 4px;
+}
+
+
+#network.disconnected {
+  color: @critical;
+  /* background: #292c3c; */
+  border-bottom: 3px;
+  border-style: solid;
+  border-color: @critical;
+  transition: 0.1s linear;
+}
+
+#network.disconnected:hover {
+    color: @highlight;
+    border-color: @highlight;
+    margin-top: 4px;
+}
+
+#workspaces {
+  /* border-color: inherit; */
+  margin-left: 8px;
+  padding-right: 2px; 
+  border-bottom: 3px;
+  border-style: solid;
+}
+
+#workspaces:hover {
+  border-color: @highlight
+}
+
+#workspaces button {
+  color: transparent;
+  transition: 0.1s linear;
+  /* background: transparent; */
+}
+
+/* #workspaces button:hover {
+  color: blue;
+} */
+#workspaces button.active > label {
+  color: @highlight;
+}
+
+#workspaces button.urgent {
+  color: @critical;
+}
+
+#workspaces button:hover > label {
+  color: @highlight;
+  margin-top: -6px;
+}
+
+
+#workspaces label {
+  font-size: 30px;
+  transition: 0.1s linear;
+}
+
+#music {
+  margin-top: 10px;
+  margin-left: 8px;
+  margin-bottom: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border-bottom: 3px;
+  border-style: solid;
+  transition: 0.1s linear;
+  border-color: @color;
+}
+
+#music:hover {
+  border-color: @highlight;
+}
+
+#custom-song {
+  transition: 0.1s linear;
+}
+
+#custom-next, #custom-prev {
+  font-size: 35px;
+  transition: 0.1s linear;
+}
+
+#custom-prev:hover, #custom-next:hover, #custom-song:hover {
+  margin-top: -6px;
+  color: @highlight;
+}
+
+#custom-power {
+  margin-top: 10px;
+  margin-left: 8px;
+  margin-bottom: 0px;
+  margin-right: 8px;
+  
+  padding-left: 10px;
+  padding-right: 10px;
+  
+  border-radius: 10px;
+  border-bottom: 3px;
+  border-style: solid;
+
+  transition: 0.1s linear;
+  font-size: 25px;
+}
+
+#custom-power:hover {
+  color: @critical;
+  border-color: @critical;
+  margin-top: 4px;
+}
