@@ -56,9 +56,11 @@ in {
             bbenoist.nix
             tamasfe.even-better-toml
             ms-python.python
-            vscjava.vscode-java-pack
+
             redhat.java
             vscjava.vscode-java-debug
+
+            tomoki1207.pdf
         # Extensions From Marketplace
         ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
             {
@@ -88,6 +90,9 @@ in {
         yt-dlp
         gh
         readest
+        libreoffice-qt-fresh
+        quickemu
+        btop
 
         cava
         asciiquarium
