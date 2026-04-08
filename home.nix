@@ -55,6 +55,10 @@ in {
         profiles.default.extensions = with pkgs.vscode-extensions; [
             bbenoist.nix
             tamasfe.even-better-toml
+            ms-python.python
+            vscjava.vscode-java-pack
+            redhat.java
+            vscjava.vscode-java-debug
         # Extensions From Marketplace
         ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
             {
@@ -94,6 +98,8 @@ in {
         yabridge
         yabridgectl
         reaper
+
+       zulu25 
     ];
 
     programs.spicetify = {

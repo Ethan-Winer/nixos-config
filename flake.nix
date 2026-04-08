@@ -14,6 +14,7 @@
 
   outputs = { nixpkgs, home-manager, catppuccin, ... } @ inputs: 
   {
+    # desktop configuration
     nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
       modules = [
@@ -29,5 +30,23 @@
         }
       ];
     };
+
+    # laptop
+    nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./hosts/laptop/configuration.nix
+        catppuccin.nixosModules.catppuccin
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.backupFileExtension = "back";
+          home-manager.users.ethan = import ./home.nix;
+          home-manager.extraSpecialArgs = { inherit inputs; };
+        }
+      ];
+    };
+    
   };
 }

@@ -12,8 +12,9 @@
   min-height: 0px;
   background: transparent; 
   color: @color;
-   border-color: @color;
+  border-color: @color;
 }
+
 
 window#waybar {
   background: transparent;
@@ -33,9 +34,9 @@ window#waybar {
   border-bottom: 3px;
   border-style: solid;
   /* border-color: #bd93f9; */
+  font-size: 35px;
   transition: 0.1s linear;
   /* animation: ease-out; */
-  font-size: 35px;
 }
 
 #network:hover {
@@ -44,6 +45,7 @@ window#waybar {
   margin-top: 4px;
   color: @highlight;
   border-color: @highlight;
+  transition: 0.1s linear;
 }
 
 #battery {
@@ -53,20 +55,24 @@ window#waybar {
   padding-right: 10px;
   margin-bottom: 0px;
   border-radius: 10px;
-  /* transition: none; */
-  /* background: #292c3c; */
-  /* color: #bd93f9; */
+
   border-bottom: 3px;
   border-style: solid;
-  /* border-color: #bd93f9; */
-  /* transition: 0.3s; */
+  font-size: 30px;
+  transition: 0.1s linear;
 }
 
 #battery:hover {
   /* color: #292c3c;
   background: #bd93f9; */
+  margin-top: 4px;
   color: @highlight;
   border-color: @highlight;
+}
+
+#battery.critical {
+  color: @critial;
+  border-color: @critical;
 }
 
 /* #backlight:hover {
@@ -102,7 +108,7 @@ window#waybar {
   transition: 0.3s;
 
   font-size: 35px;
-  transition: 0.1s linear;
+  /* transition: 0.1s linear; */
 }
 
 #wireplumber:hover {
@@ -116,12 +122,13 @@ window#waybar {
   border-color: @critical;
   border-bottom: 3px;
   border-style: solid;
-  transition: 0.1s linear;
+  /* transition: 0.1s linear; */
 }
 
 #wireplumber.muted:hover {
-  color: @highlihgt;
-  border-color: @highlihgt;
+  /* margin-top: 4px; */
+  color: @highlight;
+  border-color: @highlight;
 
 }
 
@@ -174,6 +181,8 @@ window#waybar {
 #workspaces button {
   color: transparent;
   transition: 0.1s linear;
+  padding-left: 5px;
+  padding-right: 5px;
   /* background: transparent; */
 }
 
@@ -195,12 +204,12 @@ window#waybar {
 
 
 #workspaces label {
-  font-size: 30px;
+  font-size: 25px;
   transition: 0.1s linear;
 }
 
 #music {
-  margin-top: 10px;
+  /* margin-top: 10px; */
   margin-left: 8px;
   margin-bottom: 0px;
   padding-left: 10px;

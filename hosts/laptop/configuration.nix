@@ -8,12 +8,22 @@
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
   
   # Bootloader
-	boot.loader.systemd-boot.enable = true;
-	boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.systemd-boot.enable = false;
+  boot.loader.efi.canTouchEfiVariables = true;
+  
+  boot.loader.grub = {
+    enable = true;
+    useOSProber = true;
+    efiSupport = true;
+    devices = [ "nodev" ];
+  };
 
   # Graphics
-  hardware.graphics.enable = true;
-	hardware.nvidia.open = false;
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+	# hardware.nvidia.open = false;
 
   #  Services
   
@@ -43,7 +53,7 @@
   };
 
   # Networking
-  networking.hostName = "desktop";
+  networking.hostName = "laptop";
   networking.networkmanager.enable = true;
 
   # Locale
@@ -102,41 +112,16 @@
       serif = [ "FiraCode Nerd Font Mono" ];
       sansSerif = [ "FiraCode Nerd Font Mono" ];
       monospace = [ "FiraCode Nerd Font Mono" ];
-      # serif = [ "Droid Sans Mono" ];
-      # sansSerif = [ "Droid Sans Mono" ];
-      # monospace = [ "Droid Sans Mono" ];
     };
   };
-  # stylix = {
-  #   enable = true;
-  #   base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
-  #   fonts = {
-  #     serif = {
-  #       package = pkgs.nerd-fonts.fira-code;
-  #       name = "FiraCode Nerd Font Mono";
-  #     };
-
-  #     sansSerif = {
-  #       package = pkgs.nerd-fonts.fira-code;
-  #       name = "FiraCode Nerd Font Mono";
-  #     };
-
-  #     monospace = {
-  #       package = pkgs.nerd-fonts.fira-code;
-  #       name = "FiraCode Nerd Font Mono";
-  #     };
-
-  #   };
-  # };
 
 
   environment.systemPackages = with pkgs; [
-
+    brightnessctl
   ];
 
   environment.sessionVariables = {
     
-    # NIXOS_OZONE_WL = "1";
   };
 
   # Paths for audio plugins
