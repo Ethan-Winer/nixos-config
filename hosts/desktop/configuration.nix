@@ -12,22 +12,22 @@
 	boot.loader.efi.canTouchEfiVariables = true;
 
   # Graphics
-  hardware.graphics.enable = true;
-	hardware.nvidia.open = false;
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+  services.xserver.videoDrivers = [ "nvidia" ];
+
+	hardware.nvidia = {
+    open = false;
+    modesetting.enable = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
 
   #  Services
-  
-  # xdg.portal = {
-  #   enable = true;
-  #   extraPortals = with pkgs; [
-  # #     # xdg-desktop-portal-gnome
-  #     xdg-desktop-portal-gtk
-  #   ];
-  # #   config.common.deafault = [ "gnome" ];
-  # };
 
   services = {
-    desktopManager.gnome.enable = true; # convenience
+    # desktopManager.gnome.enable = true; # convenience
     displayManager.gdm.enable = true;
   };
 
@@ -45,6 +45,10 @@
   # Networking
   networking.hostName = "desktop";
   networking.networkmanager.enable = true;
+
+  # Other Hardware
+  hardware.bluetooth.enable = true;
+  
 
   # Locale
   time.timeZone = "America/New_York";
@@ -90,6 +94,12 @@
   };
 
   programs.git.enable = true;
+  
+
+  programs.steam.enable = true;
+  programs.steam.gamescopeSession.enable = true;
+  programs.gamemode.enable = true;
+
 
   fonts =  {
     enableDefaultPackages = true;
@@ -107,27 +117,6 @@
       # monospace = [ "Droid Sans Mono" ];
     };
   };
-  # stylix = {
-  #   enable = true;
-  #   base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
-  #   fonts = {
-  #     serif = {
-  #       package = pkgs.nerd-fonts.fira-code;
-  #       name = "FiraCode Nerd Font Mono";
-  #     };
-
-  #     sansSerif = {
-  #       package = pkgs.nerd-fonts.fira-code;
-  #       name = "FiraCode Nerd Font Mono";
-  #     };
-
-  #     monospace = {
-  #       package = pkgs.nerd-fonts.fira-code;
-  #       name = "FiraCode Nerd Font Mono";
-  #     };
-
-  #   };
-  # };
 
 
   environment.systemPackages = with pkgs; [
@@ -136,7 +125,6 @@
 
   environment.sessionVariables = {
     
-    # NIXOS_OZONE_WL = "1";
   };
 
   # Paths for audio plugins

@@ -23,18 +23,6 @@
     enable = true;
     enable32Bit = true;
   };
-	# hardware.nvidia.open = false;
-
-  #  Services
-  
-  # xdg.portal = {
-  #   enable = true;
-  #   extraPortals = with pkgs; [
-  # #     # xdg-desktop-portal-gnome
-  #     xdg-desktop-portal-gtk
-  #   ];
-  # #   config.common.deafault = [ "gnome" ];
-  # };
 
   services = {
     desktopManager.gnome.enable = true; # convenience
@@ -55,6 +43,11 @@
   # Networking
   networking.hostName = "laptop";
   networking.networkmanager.enable = true;
+
+  # Other Hardware Stuff
+  hardware.bluetooth.enable = true;
+  services.tuned.enable = true;
+  services.upower.enable = true;
 
   # Locale
   time.timeZone = "America/New_York";
