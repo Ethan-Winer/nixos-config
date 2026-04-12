@@ -17,6 +17,7 @@ in {
 	programs.alacritty.enable = true;
 	programs.vesktop.enable = true;
     programs.noctalia-shell.enable = true;
+
     programs.firefox = {
         enable = true;
         profiles.default = {
@@ -91,16 +92,15 @@ in {
 
     home.packages = with pkgs; [
 	    xwayland-satellite
-        # swaybg
         playerctl
-        # pavucontrol
         yt-dlp
         gh
         readest
         libreoffice-qt-fresh
         quickemu
-        btop
         nautilus
+        imv
+        ffmpeg
 
         cava
         asciiquarium
@@ -164,47 +164,31 @@ in {
     };
   };
 
-  # Qt theme
-  qt = {
-    enable = true;
-    platformTheme.name = "qtct";
-    style.name = "kvantum";
-  };
+    # Qt theme
+    qt = {
+        enable = true;
+        platformTheme.name = "qtct";
+        style.name = "kvantum";
+    };
 
-  xdg.configFile."kdeglobals".text = ''
-  [Icons]
-  Theme=Papirus-Dark
-  '';
+    xdg.configFile."kdeglobals".text = ''
+        [Icons]
+        Theme=Papirus-Dark
+    '';
 
     # Cursor
     home.pointerCursor = {
-        # x11.enable = true;
         gtk.enable = true;
-        # Use the specific mochaLavender package
         package = pkgs.catppuccin-cursors.mochaDark;
-        # Note: Recent updates require lowercase naming
         name = "catppuccin-mocha-dark-cursors";
-        size = 24; # Adjust size as needed
+        size = 24;
     };
 
 
     # Symlinks
-
-    # Firefox Theme
-    # home.file.".mozilla/firefox/default/extcatppuccin_mocha_lavender_git-2.0.xpi".source = ./configs/firefox/catppuccin_mocha_lavender_git-2.0.xpi;
-
-    # xdg.configFile."niri/config.kdl".source = ./configs/niri/config.kdl;
     home.file.".config/niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "/home/ethan/nixos/configs/niri/config.kdl";
-    # xdg.configFile."niri/wallpaper.jpg".source = ./wallpaper.jpg;
-
     xdg.configFile."alacritty/alacritty.toml".source = ./configs/alacritty/alacritty.toml;
-    
-    # xdg.configFile."waybar/config.jsonc".source = ./configs/waybar/config.jsonc;
-    # xdg.configFile."waybar/style.css".source = ./configs/waybar/style.css;
-    # xdg.configFile.".config/waybar/mocha.css".source =  ./configs/waybar/mocha.css;
-    # home.file.".config/waybar/config.jsonc".source = config.lib.file.mkOutOfStoreSymlink "/home/ethan/nixos/configs/waybar/config.jsonc";
-    # home.file.".config/waybar/style.css".source = config.lib.file.mkOutOfStoreSymlink "/home/ethan/nixos/configs/waybar/style.css";
+    xdg.configFile."noctalia/settings.json".source = ./configs/noctalia/settings.json;
 
-    # xdg.configFile."waybar/macchiato.css".source = ./configs/waybar/macchiato.css;
     home.stateVersion = "25.11";
 }
