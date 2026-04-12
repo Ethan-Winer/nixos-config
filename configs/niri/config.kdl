@@ -668,5 +668,5 @@ layer-rule {
 }
 
 spawn-at-startup "noctalia-shell"
-spawn-sh-at-startup "noctalia-shell ipc call wallpaper random $monitor"
+spawn-sh-at-startup "noctalia-shell ipc call wallpaper random"
 
