@@ -5,6 +5,10 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     catppuccin.url = "github:catppuccin/nix/release-25.11";
+    musnix = {
+      url = "github:musnix/musnix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
@@ -17,7 +21,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, catppuccin, ... } @ inputs: 
+  outputs = { nixpkgs, home-manager, catppuccin, musnix, ... } @ inputs: 
   {
     # desktop configuration
     nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
@@ -26,6 +30,7 @@
         ./hosts/desktop/configuration.nix
         catppuccin.nixosModules.catppuccin
         home-manager.nixosModules.home-manager
+        musnix.nixosModules.musnix
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;

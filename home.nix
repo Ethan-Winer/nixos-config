@@ -42,18 +42,6 @@ in {
                     install_url = https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi;
                     installation_mode = "force_installed";
                 };
-
-                # "pywalfox@frewacom.org" = {
-                #     default_area = "menupanel";
-                #     install_url = https://addons.mozilla.org/firefox/downloads/latest/pywalfox/latest.xpi;
-                #     installation_mode = "force_installed";
-                # };
-
-                # catppuccin broswer theme
-                # "{8446b178-c865-4f5c-8ccc-1d7887811ae3}" = {
-                #     install_url = https://addons.mozilla.org/firefox/downloads/file/3990315/catppuccin_mocha_lavender_git-2.0.xpi;
-                #     instalation_mode = "force_installed";
-                # };
             };
         };
     };
@@ -186,7 +174,9 @@ in {
 
 
     # Symlinks
-    home.file.".config/niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "/home/ethan/nixos/configs/niri/config.kdl";
+
+    # home.file.".config/niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "/home/ethan/NixOS/configs/niri/config.kdl";
+    xdg.configFile."niri/config.kdl".source = ./configs/niri/config.kdl;
     xdg.configFile."alacritty/alacritty.toml".source = ./configs/alacritty/alacritty.toml;
     xdg.configFile."noctalia/settings.json".source = ./configs/noctalia/settings.json;
 

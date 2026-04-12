@@ -37,9 +37,13 @@
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
-    pulse.enable = true;
     jack.enable = true;
-    
+  };
+  
+  musnix = {
+    enable = true;
+    kernel.realtime = true;
+    rtirq.enable = true;
   };
 
   # Networking
@@ -75,7 +79,7 @@
   users.users.ethan = {
     isNormalUser = true;
     description = "ethan";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" ];
     packages = with pkgs; [];
   };
 
@@ -104,16 +108,16 @@
     enableDefaultPackages = true;
     packages = with pkgs; [
       nerd-fonts.fira-code
-      # nerd-fonts.droid-sans-mono
+      # nerd-fonts.inconsolata
     ];
 
     fontconfig.defaultFonts = {
-      serif = [ "FiraCode Nerd Font Mono" ];
-      sansSerif = [ "FiraCode Nerd Font Mono" ];
-      monospace = [ "FiraCode Nerd Font Mono" ];
-      # serif = [ "Droid Sans Mono" ];
-      # sansSerif = [ "Droid Sans Mono" ];
-      # monospace = [ "Droid Sans Mono" ];
+      # serif = [ "FiraCode Nerd Font Mono" ];
+      # sansSerif = [ "FiraCode Nerd Font Mono" ];
+      # monospace = [ "FiraCode Nerd Font Mono" ];
+      serif = [ "Fira Code" ];
+      sansSerif = [ "Fira Code" ];
+      monospace = [ "Fira Code Mono" ];
     };
   };
 
@@ -138,12 +142,12 @@
       + ":$HOME/.${format}";
   in
   {
-    DSSI_PATH = makePluginPath "dssi";
-    LADSPA_PATH = makePluginPath "ladspa";
-    LV2_PATH = makePluginPath "lv2";
-    LXVST_PATH = makePluginPath "lxvst";
-    VST_PATH = makePluginPath "vst";
-    VST3_PATH = makePluginPath "vst3";
+    # DSSI_PATH = makePluginPath "dssi";
+    # LADSPA_PATH = makePluginPath "ladspa";
+    # LV2_PATH = makePluginPath "lv2";
+    # LXVST_PATH = makePluginPath "lxvst";
+    # VST_PATH = makePluginPath "vst";
+    # VST3_PATH = makePluginPath "vst3";
   };
   system.stateVersion = "25.11";
 }
