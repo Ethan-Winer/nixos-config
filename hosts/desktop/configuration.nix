@@ -107,17 +107,14 @@
   fonts =  {
     enableDefaultPackages = true;
     packages = with pkgs; [
+      fira-sans
       nerd-fonts.fira-code
-      # nerd-fonts.inconsolata
     ];
 
     fontconfig.defaultFonts = {
-      # serif = [ "FiraCode Nerd Font Mono" ];
-      # sansSerif = [ "FiraCode Nerd Font Mono" ];
-      # monospace = [ "FiraCode Nerd Font Mono" ];
-      serif = [ "Fira Code Nerd Font" ];
-      sansSerif = [ "Fira Code Nerd Font" ];
-      monospace = [ "Fira Code Mono" ];
+      serif = [ "Fira Sans" ];
+      sansSerif = [ "Fira Sans" ];
+      monospace = [ "Fira Code Nerd Font Mono" ];
     };
   };
 

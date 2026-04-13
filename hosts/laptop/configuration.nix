@@ -100,17 +100,18 @@
     '';
   };
 
-  #Fonts
+  # Fonts
   fonts =  {
     enableDefaultPackages = true;
     packages = with pkgs; [
+      fira-sans
       nerd-fonts.fira-code
     ];
 
     fontconfig.defaultFonts = {
-      serif = [ "FiraCode Nerd Font" ];
-      sansSerif = [ "FiraCode Nerd Font" ];
-      monospace = [ "FiraCode Nerd Font Mono" ];
+      serif = [ "Fira Sans" ];
+      sansSerif = [ "Fira Sans" ];
+      monospace = [ "Fira Code Nerd Font Mono" ];
     };
   };
 

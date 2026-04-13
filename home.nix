@@ -71,10 +71,13 @@ in {
         ];
         # Settings
         profiles.default.userSettings = {
-            "editor.fontSize" = "16";
+            "editor.fontSize" = "14";
+            "editor.fontFamily" = "Fira Code Nerd Font Mono";
             "chat.disableAIFeatures" = true;
-            "workbench.colorTheme" = "Catppuccin Mocha";
-
+            # "workbench.colorTheme" = "Catppuccin Mocha";
+            "window.zoomLevel" = 0.5;
+            "editor.allowVariableFonts" = false;
+            "update.mode" = "none";
         };
     };
 
