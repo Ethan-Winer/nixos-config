@@ -25,7 +25,6 @@
   };
 
   services = {
-    desktopManager.gnome.enable = true; # convenience
     displayManager.gdm.enable = true;
   };
 
@@ -35,9 +34,13 @@
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
-    pulse.enable = true;
     jack.enable = true;
-    
+  };
+  
+  musnix = {
+    enable = true;
+    kernel.realtime = true;
+    rtirq.enable = true;
   };
 
   # Networking
@@ -74,7 +77,7 @@
   users.users.ethan = {
     isNormalUser = true;
     description = "ethan";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" ];
     packages = with pkgs; [];
   };
 
@@ -84,6 +87,11 @@
   nixpkgs.config.allowUnfree = true;
   
   programs.niri.enable = true;
+  programs.git.enable = true;
+
+  programs.steam.enable = true;
+  programs.steam.gamescopeSession.enable = true;
+  programs.gamemode.enable = true;
   
   programs.fish = {
     enable = true;
@@ -92,18 +100,16 @@
     '';
   };
 
-  programs.git.enable = true;
-
+  #Fonts
   fonts =  {
     enableDefaultPackages = true;
     packages = with pkgs; [
       nerd-fonts.fira-code
-      # nerd-fonts.droid-sans-mono
     ];
 
     fontconfig.defaultFonts = {
-      serif = [ "FiraCode Nerd Font Mono" ];
-      sansSerif = [ "FiraCode Nerd Font Mono" ];
+      serif = [ "FiraCode Nerd Font" ];
+      sansSerif = [ "FiraCode Nerd Font" ];
       monospace = [ "FiraCode Nerd Font Mono" ];
     };
   };
@@ -111,30 +117,16 @@
 
   environment.systemPackages = with pkgs; [
     brightnessctl
+    btop
   ];
 
   environment.sessionVariables = {
     
   };
 
-  # Paths for audio plugins
-  environment.variables =
-  let
-    makePluginPath = format:
-      (lib.makeSearchPath format [
-        "$HOME/.nix-profile/lib"
-        "/run/current-system/sw/lib"
-        "/etc/profiles/per-user/$USER/lib"
-      ])
-      + ":$HOME/.${format}";
-  in
-  {
-    DSSI_PATH = makePluginPath "dssi";
-    LADSPA_PATH = makePluginPath "ladspa";
-    LV2_PATH = makePluginPath "lv2";
-    LXVST_PATH = makePluginPath "lxvst";
-    VST_PATH = makePluginPath "vst";
-    VST3_PATH = makePluginPath "vst3";
+  environment.variables = {
+
   };
+
   system.stateVersion = "25.11";
 }
