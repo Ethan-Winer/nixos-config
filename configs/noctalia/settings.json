@@ -6,17 +6,17 @@
     "monitors": [],
     "density": "spacious",
     "showOutline": false,
-    "showCapsule": true,
-    "capsuleOpacity": 0.7000000000000001,
+    "showCapsule": false,
+    "capsuleOpacity": 0.8599999999999999,
     "capsuleColorKey": "none",
-    "widgetSpacing": 8,
+    "widgetSpacing": 4,
     "contentPadding": 2,
     "fontScale": 1,
-    "enableExclusionZoneInset": true,
+    "enableExclusionZoneInset": false,
     "backgroundOpacity": 0.1,
     "useSeparateOpacity": false,
-    "marginVertical": 4,
-    "marginHorizontal": 500,
+    "marginVertical": 9,
+    "marginHorizontal": 225,
     "frameThickness": 8,
     "frameRadius": 12,
     "outerCorners": false,
@@ -78,15 +78,6 @@
           "pinned": []
         },
         {
-          "deviceNativePath": "__default__",
-          "displayMode": "graphic-clean",
-          "hideIfIdle": false,
-          "hideIfNotDetected": true,
-          "id": "Battery",
-          "showNoctaliaPerformance": false,
-          "showPowerProfiles": false
-        },
-        {
           "displayMode": "onhover",
           "iconColor": "none",
           "id": "Volume",
@@ -100,9 +91,18 @@
           "textColor": "none"
         },
         {
+          "deviceNativePath": "__default__",
+          "displayMode": "icon-hover",
+          "hideIfIdle": false,
+          "hideIfNotDetected": true,
+          "id": "Battery",
+          "showNoctaliaPerformance": false,
+          "showPowerProfiles": false
+        },
+        {
           "clockColor": "none",
           "customFont": "",
-          "formatHorizontal": "HH:mm ddd, MMM dd",
+          "formatHorizontal": "HH:mm",
           "formatVertical": "HH mm - dd MM",
           "id": "Clock",
           "tooltipFormat": "HH:mm ddd, MMM dd",
@@ -190,7 +190,7 @@
     "smoothScrollEnabled": true
   },
   "ui": {
-    "fontDefault": "Sans Serif",
+    "fontDefault": "FiraCode Nerd Font Mono",
     "fontFixed": "monospace",
     "fontDefaultScale": 1,
     "fontFixedScale": 1,
