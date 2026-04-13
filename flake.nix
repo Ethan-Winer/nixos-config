@@ -48,6 +48,7 @@
         ./hosts/laptop/configuration.nix
         catppuccin.nixosModules.catppuccin
         home-manager.nixosModules.home-manager
+        musnix.nixosModules.musnix
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
