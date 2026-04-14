@@ -78,6 +78,7 @@ in {
             "window.zoomLevel" = 0.5;
             "editor.allowVariableFonts" = false;
             "update.mode" = "none";
+            "telemetry.feedback.enabled" = false;
         };
     };
 
