@@ -178,7 +178,6 @@ in {
 
 
     # Symlinks
-
     # home.file.".config/niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "/home/ethan/NixOS/configs/niri/config.kdl";
     xdg.configFile."niri/config.kdl".source = ./configs/niri/config.kdl;
     xdg.configFile."alacritty/alacritty.toml".source = ./configs/alacritty/alacritty.toml;

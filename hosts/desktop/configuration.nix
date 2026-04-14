@@ -27,8 +27,13 @@
   #  Services
 
   services = {
-    # desktopManager.gnome.enable = true; # convenience
     displayManager.gdm.enable = true;
+    # USB stuff
+    dbus.enable = true;
+    udisks2.enable = true;
+    gvfs.enable = true;
+    devmon.enable = true;
+    udev.packages = [ pkgs.libmtp ];
   };
 
   # Audio
