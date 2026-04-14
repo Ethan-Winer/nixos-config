@@ -656,6 +656,9 @@ output "DP-1" {
     mode "2560x1440@179.877"
 }
 
+switch-events {
+    lid-close { spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
+}
 
 // noctalia stuff
 debug {

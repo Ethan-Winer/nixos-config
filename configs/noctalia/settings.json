@@ -190,7 +190,7 @@
     "smoothScrollEnabled": true
   },
   "ui": {
-    "fontDefault": "FiraCode Nerd Font Mono",
+    "fontDefault": "Fira Sans",
     "fontFixed": "monospace",
     "fontDefaultScale": 1,
     "fontFixedScale": 1,
