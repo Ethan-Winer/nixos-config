@@ -88,11 +88,15 @@ in {
         yt-dlp
         gh
         readest
+        
         libreoffice-qt-fresh
+        
         quickemu
         nautilus
         imv
         ffmpeg
+        celluloid
+        gnome-text-editor
 
         cava
         asciiquarium

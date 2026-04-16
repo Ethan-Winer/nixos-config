@@ -42,7 +42,7 @@ input {
         natural-scroll
         // accel-speed 0.2
         // accel-profile "flat"
-        // scroll-method "two-finger"
+        scroll-method "two-finger"
         // disabled-on-external-mouse
     }
 
@@ -115,7 +115,7 @@ input {
 // https://yalter.github.io/niri/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 10
+    gaps 12
     
     background-color "#1e1e2e"
 
@@ -165,7 +165,7 @@ layout {
         // off
 
         // How many logical pixels the ring extends out from the windows.
-        width 3
+        width 2
 
         // Colors can be set in a variety of ways:
         // - CSS named colors: "red"
@@ -174,9 +174,7 @@ layout {
 
         // Color of the ring on the active monitor.
         // active-color "#7fc8ff"
-        active-color "#6c7086"
-        // active-color "#9399b2"
-        // active-color "#b4befe"
+        active-color "#949cbb"
 
         // Color of the ring on inactive monitors.
         //
@@ -191,13 +189,13 @@ layout {
         // You can use any CSS linear-gradient tool on the web to set these up.
         // Changing the color space is also supported, check the wiki for more info.
         //
-        // active-gradient from="#80c8ff" to="#c7ff7f" angle=45
+        // active-gradient from="#414559" to="#9399b2" angle=45
 
         // You can also color the gradient relative to the entire view
         // of the workspace, rather than relative to just the window itself.
         // To do that, set relative-to="workspace-view".
         //
-        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+        // inactive-gradient from="#292c3c" to="rgb(81, 87, 109)" angle=45
     }
 
     // You can also add a border. It's similar to the focus ring, but always visible.
@@ -284,7 +282,7 @@ layout {
 
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
-    // skip-at-startup
+    skip-at-startup
 }
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
@@ -638,6 +636,7 @@ binds {
     Mod+L { spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
     Ctrl+Alt+Delete { spawn "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }
     Mod+B { spawn "firefox"; }
+    Mod+S { spawn "spotify"; }
 }
 
 //My changes
