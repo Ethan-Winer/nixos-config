@@ -41,7 +41,7 @@
           "id": "Workspace",
           "labelMode": "none",
           "occupiedColor": "none",
-          "pillSize": 0.45,
+          "pillSize": 0.5,
           "showApplications": false,
           "showApplicationsHover": false,
           "showBadge": true,
