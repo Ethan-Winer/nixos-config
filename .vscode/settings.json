@@ -1,8 +1,0 @@
-{
-    "editor.fontFamily": "'Fira Code Nerd Font Mono'",
-    "editor.fontSize": 14,
-    "editor.minimap.sectionHeaderFontSize": 9,
-    "scm.inputFontSize": 13,
-    "notebook.markup.fontFamily": "",
-    "editor.allowVariableFonts": false
-}

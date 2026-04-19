@@ -55,11 +55,10 @@ in {
             bbenoist.nix
             tamasfe.even-better-toml
             ms-python.python
-            
             redhat.java
             vscjava.vscode-java-debug
 
-            tomoki1207.pdf
+            angular.ng-template
         # Extensions From Marketplace
         ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
             {
