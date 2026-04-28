@@ -87,8 +87,8 @@ in {
         yt-dlp
         gh
         readest
-        
         libreoffice-qt-fresh
+        davinci-resolve
         
         quickemu
         nautilus
@@ -99,6 +99,7 @@ in {
 
         cava
         asciiquarium
+        osu-lazer-bin
 
         # Music
         wineWowPackages.yabridge
