@@ -99,7 +99,6 @@ in {
 
         cava
         asciiquarium
-        osu-lazer-bin
 
         # Music
         wineWowPackages.yabridge
