@@ -81,11 +81,12 @@ in {
         };
     };
 
+
     home.packages = with pkgs; [
-	    xwayland-satellite
         playerctl
         yt-dlp
         gh
+        btop
         readest
         libreoffice-qt-fresh
         davinci-resolve
@@ -99,6 +100,28 @@ in {
 
         cava
         asciiquarium
+
+        # freecad needs to be launched from the terminal for some reason
+        # these wrapped packages should probably be in imported modules but i will do that later
+        (symlinkJoin {
+            name = "freecad-wrapped";
+            buildInputs = [ makeWrapper ];
+            paths = [ freecad ];
+            postBuild = ''
+                wrapProgram $out/bin/freecad \
+                --set QT_QPA_PLATFORM xcb
+            '';
+        })
+        (symlinkJoin {
+            name= "orca-slicer-wrapped";
+            buildInputs = [ makeWrapper ];
+            paths = [ orca-slicer ];
+            postBuild = ''
+                wrapProgram $out/bin/orca-slicer \
+                --set WEBKIT_DISABLE_DMABUF_RENDERER 1 \
+                --set GBM_BACKEND dri
+            '';
+        })
 
         # Music
         wineWowPackages.yabridge
@@ -114,6 +137,10 @@ in {
         kdePackages.kde-cli-tools
         catppuccin-qt5ct
     ];
+
+
+    
+
 
     programs.spicetify = {
         enable = true;

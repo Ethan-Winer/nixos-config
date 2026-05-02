@@ -125,7 +125,8 @@
 
 
   environment.systemPackages = with pkgs; [
-    btop
+    xwayland
+    xwayland-satellite
   ];
 
   environment.sessionVariables = {

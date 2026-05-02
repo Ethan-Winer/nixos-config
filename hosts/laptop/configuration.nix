@@ -124,7 +124,8 @@
 
   environment.systemPackages = with pkgs; [
     brightnessctl
-    btop
+    xwayland
+    xwayland-satellite
   ];
 
   environment.sessionVariables = {
