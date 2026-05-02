@@ -24,6 +24,12 @@
     enable32Bit = true;
   };
 
+  # Screensharing
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
+  };
+
   services = {
     displayManager.gdm.enable = true;
         # USB stuff
