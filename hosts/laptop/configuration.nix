@@ -27,7 +27,12 @@
   # Screensharing
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
+    xdgOpenUsePortal = true;
+    extraPortals = with pkgs; [ 
+      xdg-desktop-portal-gnome
+    ];
+    
+    config.common.default = [ "gnome" ];
   };
 
   services = {

@@ -29,11 +29,10 @@
     enable = true;
     xdgOpenUsePortal = true;
     extraPortals = with pkgs; [ 
-      xdg-desktop-portal-gtk
       xdg-desktop-portal-gnome
     ];
     
-    config.niri.default = [ "gnome" "gtk" ];
+    config.common.default = [ "gnome" ];
   };
 
   #  Services
@@ -114,10 +113,10 @@
   };
 
   programs.git.enable = true;
-
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
   programs.gamemode.enable = true;
+
 
 
   fonts =  {

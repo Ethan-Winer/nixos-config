@@ -90,6 +90,9 @@ in {
         readest
         libreoffice-qt-fresh
         davinci-resolve
+        google-chrome
+        unzip
+        gnome-clocks
         
         quickemu
         nautilus
