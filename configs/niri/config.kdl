@@ -651,7 +651,7 @@ overview {
     backdrop-color "#1e1e2e"
 }
 
-output "DP-1" {
+output "DP-2" {
     mode "2560x1440@179.877"
 }
 

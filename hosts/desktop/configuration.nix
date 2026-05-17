@@ -118,7 +118,6 @@
   programs.gamemode.enable = true;
 
 
-
   fonts =  {
     enableDefaultPackages = true;
     packages = with pkgs; [
@@ -132,7 +131,6 @@
       monospace = [ "Fira Code Nerd Font Mono" ];
     };
   };
-
 
   environment.systemPackages = with pkgs; [
     xwayland
