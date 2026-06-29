@@ -7,7 +7,6 @@ in {
     imports = [
         inputs.spicetify-nix.homeManagerModules.default
         inputs.catppuccin.homeModules.catppuccin
-        # inputs.noctalia.homeModules.default
     ];
 
     home.username = "ethan";
@@ -73,9 +72,7 @@ in {
             "editor.fontSize" = "14";
             "editor.fontFamily" = "Fira Code Nerd Font Mono";
             "chat.disableAIFeatures" = true;
-            # "workbench.colorTheme" = "Catppuccin Mocha";
             "window.zoomLevel" = 0.5;
-            # "editor.allowVariableFonts" = false;
             "update.mode" = "none";
             "telemetry.feedback.enabled" = false;
         };
@@ -85,11 +82,10 @@ in {
     home.packages = with pkgs; [
         playerctl
         yt-dlp
-        gh
         btop
         readest
         libreoffice-qt-fresh
-        # davinci-resolve
+        davinci-resolve
         google-chrome
         unzip
         gnome-clocks
@@ -106,47 +102,29 @@ in {
 
         noctalia-shell
 
+        #coding
+        jetbrains.rider
+        gh
+        nodejs_26
+        dotnet-sdk_10
 
-        # freecad needs to be launched from the terminal for some reason
-        # these wrapped packages should probably be in imported modules but i will do that later
-        (symlinkJoin {
-            name = "freecad-wrapped";
-            buildInputs = [ makeWrapper ];
-            paths = [ freecad ];
-            postBuild = ''
-                wrapProgram $out/bin/freecad \
-                --set QT_QPA_PLATFORM xcb
-            '';
-        })
-        (symlinkJoin {
-            name= "orca-slicer-wrapped";
-            buildInputs = [ makeWrapper ];
-            paths = [ orca-slicer ];
-            postBuild = ''
-                wrapProgram $out/bin/orca-slicer \
-                --set WEBKIT_DISABLE_DMABUF_RENDERER 1 \
-                --set GBM_BACKEND dri
-            '';
-        })
+        #3D Printing
+        freecad
+        orca-slicer
 
         # Music
-        wineWowPackages.yabridge
+        wineWow64Packages.yabridge
         yabridge
         yabridgectl
         reaper
 
-        zulu25 
 
-        pkgs.libsForQt5.qtstyleplugin-kvantum
-        pkgs.kdePackages.qtstyleplugin-kvantum
-        kdePackages.qt6ct
-        kdePackages.kde-cli-tools
-        catppuccin-qt5ct
+        # pkgs.libsForQt5.qtstyleplugin-kvantum
+        # pkgs.kdePackages.qtstyleplugin-kvantum
+        # kdePackages.qt6ct
+        # kdePackages.kde-cli-tools
+        # catppuccin-qt5ct
     ];
-
-
-    
-
 
     programs.spicetify = {
         enable = true;
@@ -160,85 +138,36 @@ in {
         colorScheme = "${flavor}";
     };
 
-
     catppuccin = {
         enable = true;
         flavor = "${flavor}";
         accent = "${accent}";
         alacritty.enable = false;
-
     };
+    
+    gtk = {
+        enable = true;
+        
+        theme = {
+            name = "catppuccin-mocha-lavender-compact+rimless"; 
+            package = pkgs.catppuccin-gtk.override {
+                accents = [ "lavender" ];
+                size = "compact";
+                tweaks = [ "rimless" ];
+                variant = "mocha";
+            };
+        };
+    };
+
     
 
     dconf.settings = {
         "org/gnome/desktop/interface" = {
-        color-scheme = "prefer-dark";
+            color-scheme = "prefer-dark";
+            gtk-theme = "catppuccin-mocha-lavender-compact+rimless";
+            icon-theme = "Papirus-Dark";
         };
     };
-
-#   # GTK theme
-#     gtk = {
-#         enable = true;
-#         theme = {
-#             name = "catppuccin-macchiato-lavender-standard+default";
-#             package = pkgs.magnetic-catppuccin-gtk.override {
-#                 flavor = "mocha";
-#                 accent = [ "lavender" ];
-#             };
-#         };
-#         # iconTheme = {
-#         #     name =  "Catppuccin-Mocha-Lavender-Icons";
-#         #     package = pkgs.catppuccin-papirus-folders.override {
-#         #         flavor = "mocha";
-#         #         accent = "lavender";
-#         #     };
-#         # };
-        
-#         cursorTheme = {
-#             name = "Catppuccin-Mocha-Dark-Cursors";
-#             package = pkgs.catppuccin-cursors.mochaDark;
-#             size = 16;
-#         };
-#     };
-
-    gtk = {
-        enable = true;
-
-        # Theming Packages
-        theme = {
-            name = "Catppuccin-Macchiato-Compact-Lavender-Dark";
-            package = pkgs.catppuccin-gtk.override {
-                accents = [ "lavender" ];
-                size = "compact";
-                variant = "macchiato";
-            };
-        };
-
-        # iconTheme = {
-        #     name = "Papirus-Dark";
-        #     package = pkgs.papirus-icon-theme;
-        # };
-
-        # cursorTheme = {
-        #     name = "Adwaita";
-        #     package = pkgs.gnome.adwaita-icon-theme;
-        # };
-
-        # GTK 4 Configuration (New for 26.05)
-        gtk4.theme = null; # Sets to default Libadwaita styling, or set to config.gtk.theme to mirror GTK3
-    };
-
-    # # Qt theme
-    # qt = {
-    #     enable = true;
-    #     platformTheme.name = "qtct";
-    #     style.name = "kvantum";
-    # };
-
-    # xdg.configFile."kdeglobals".text = ''
-    #     [Icons]
-    #     Theme=Papirus-Dark
-    # '';
 
     # Cursor
     home.pointerCursor = {
@@ -248,9 +177,7 @@ in {
         size = 24;
     };
 
-
     # Symlinks
-    # home.file.".config/niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "/home/ethan/NixOS/configs/niri/config.kdl";
     xdg.configFile."niri/config.kdl".source = ./configs/niri/config.kdl;
     xdg.configFile."alacritty/alacritty.toml".source = ./configs/alacritty/alacritty.toml;
     xdg.configFile."noctalia/settings.json".source = ./configs/noctalia/settings.json;

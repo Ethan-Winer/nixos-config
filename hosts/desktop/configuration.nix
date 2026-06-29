@@ -26,6 +26,7 @@
     package = config.boot.kernelPackages.nvidiaPackages.legacy_580; 
   };
 
+  
   # Screensharing
   xdg.portal = {
     enable = true;
