@@ -7,7 +7,7 @@ in {
     imports = [
         inputs.spicetify-nix.homeManagerModules.default
         inputs.catppuccin.homeModules.catppuccin
-        inputs.noctalia.homeModules.default
+        # inputs.noctalia.homeModules.default
     ];
 
     home.username = "ethan";
@@ -16,7 +16,7 @@ in {
     programs.fish.enable = true;
 	programs.alacritty.enable = true;
 	programs.vesktop.enable = true;
-    programs.noctalia-shell.enable = true;
+    # programs.noctalia.enable = true;
 
     programs.firefox = {
         enable = true;
@@ -89,7 +89,7 @@ in {
         btop
         readest
         libreoffice-qt-fresh
-        davinci-resolve
+        # davinci-resolve
         google-chrome
         unzip
         gnome-clocks
@@ -103,6 +103,9 @@ in {
 
         cava
         asciiquarium
+
+        noctalia-shell
+
 
         # freecad needs to be launched from the terminal for some reason
         # these wrapped packages should probably be in imported modules but i will do that later
@@ -167,39 +170,75 @@ in {
     };
     
 
-  # GTK theme
-  gtk = {
-    enable = true;
-    theme = {
-      name = "catppuccin-macchiato-lavender-standard";
-      package = pkgs.catppuccin-gtk.override {
-        accents = [ "lavender" ];
-        variant = "macchiato";
-      };
+    dconf.settings = {
+        "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+        };
     };
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = lib.mkForce (pkgs.catppuccin-papirus-folders.override {
-        flavor = "macchiato";
-        accent = "lavender";
-      });
-    };
-    cursorTheme = {
-      name = "catppuccin-macchiato-dark-cursors";
-    };
-  };
 
-    # Qt theme
-    qt = {
+#   # GTK theme
+#     gtk = {
+#         enable = true;
+#         theme = {
+#             name = "catppuccin-macchiato-lavender-standard+default";
+#             package = pkgs.magnetic-catppuccin-gtk.override {
+#                 flavor = "mocha";
+#                 accent = [ "lavender" ];
+#             };
+#         };
+#         # iconTheme = {
+#         #     name =  "Catppuccin-Mocha-Lavender-Icons";
+#         #     package = pkgs.catppuccin-papirus-folders.override {
+#         #         flavor = "mocha";
+#         #         accent = "lavender";
+#         #     };
+#         # };
+        
+#         cursorTheme = {
+#             name = "Catppuccin-Mocha-Dark-Cursors";
+#             package = pkgs.catppuccin-cursors.mochaDark;
+#             size = 16;
+#         };
+#     };
+
+    gtk = {
         enable = true;
-        platformTheme.name = "qtct";
-        style.name = "kvantum";
+
+        # Theming Packages
+        theme = {
+            name = "Catppuccin-Macchiato-Compact-Lavender-Dark";
+            package = pkgs.catppuccin-gtk.override {
+                accents = [ "lavender" ];
+                size = "compact";
+                variant = "macchiato";
+            };
+        };
+
+        # iconTheme = {
+        #     name = "Papirus-Dark";
+        #     package = pkgs.papirus-icon-theme;
+        # };
+
+        # cursorTheme = {
+        #     name = "Adwaita";
+        #     package = pkgs.gnome.adwaita-icon-theme;
+        # };
+
+        # GTK 4 Configuration (New for 26.05)
+        gtk4.theme = null; # Sets to default Libadwaita styling, or set to config.gtk.theme to mirror GTK3
     };
 
-    xdg.configFile."kdeglobals".text = ''
-        [Icons]
-        Theme=Papirus-Dark
-    '';
+    # # Qt theme
+    # qt = {
+    #     enable = true;
+    #     platformTheme.name = "qtct";
+    #     style.name = "kvantum";
+    # };
+
+    # xdg.configFile."kdeglobals".text = ''
+    #     [Icons]
+    #     Theme=Papirus-Dark
+    # '';
 
     # Cursor
     home.pointerCursor = {
@@ -216,5 +255,5 @@ in {
     xdg.configFile."alacritty/alacritty.toml".source = ./configs/alacritty/alacritty.toml;
     xdg.configFile."noctalia/settings.json".source = ./configs/noctalia/settings.json;
 
-    home.stateVersion = "25.11";
+    home.stateVersion = "26.05";
 }

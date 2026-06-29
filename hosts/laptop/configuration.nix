@@ -44,6 +44,7 @@
     devmon.enable = true;
     udev.packages = [ pkgs.libmtp ];
   };
+  services.xserver.desktopManager.gnome.enable = true;
 
   # Audio
   security.rtkit.enable = true;
@@ -147,5 +148,5 @@
 
   };
 
-  system.stateVersion = "25.11";
+  system.stateVersion = "26.05";
 }

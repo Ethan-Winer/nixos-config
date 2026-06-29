@@ -7,9 +7,11 @@
     ];
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
   
-  # Bootloader
-	boot.loader.systemd-boot.enable = true;
-	boot.loader.efi.canTouchEfiVariables = true;
+  # Bootloader.
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/sda";
+  boot.loader.grub.useOSProber = true;
+
 
   # Graphics
   hardware.graphics = {
@@ -21,7 +23,7 @@
 	hardware.nvidia = {
     open = false;
     modesetting.enable = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.legacy_580; 
   };
 
   # Screensharing
@@ -48,7 +50,7 @@
 
   # Audio
   security.rtkit.enable = true;
-  services.pipewire = {
+  services.pipewire = { 
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
@@ -116,6 +118,7 @@
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
   programs.gamemode.enable = true;
+  programs.dconf.enable = true;
 
 
   fonts =  {
@@ -137,6 +140,7 @@
     xwayland-satellite
   ];
 
+
   environment.sessionVariables = {
     
   };
@@ -145,5 +149,5 @@
 
   };
 
-  system.stateVersion = "25.11";
+  system.stateVersion = "26.05";
 }
