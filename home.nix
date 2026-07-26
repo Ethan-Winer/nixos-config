@@ -89,6 +89,7 @@ in {
         google-chrome
         unzip
         gnome-clocks
+        gnome-disk-utility
         
         quickemu
         nautilus
@@ -105,8 +106,9 @@ in {
         #coding
         jetbrains.rider
         gh
-        nodejs_26
-        dotnet-sdk_10
+        # nodejs_26
+        # dotnet-sdk_10
+        penpot-desktop
 
         #3D Printing
         freecad
