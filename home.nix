@@ -90,6 +90,11 @@ in {
         unzip
         gnome-clocks
         gnome-disk-utility
+        android-tools
+        nicotine-plus
+        musescore
+        osu-lazer-bin
+        strawberry
         
         quickemu
         nautilus
@@ -121,11 +126,11 @@ in {
         reaper
 
 
-        # pkgs.libsForQt5.qtstyleplugin-kvantum
-        # pkgs.kdePackages.qtstyleplugin-kvantum
-        # kdePackages.qt6ct
-        # kdePackages.kde-cli-tools
-        # catppuccin-qt5ct
+        pkgs.libsForQt5.qtstyleplugin-kvantum
+        pkgs.kdePackages.qtstyleplugin-kvantum
+        kdePackages.qt6ct
+        kdePackages.kde-cli-tools
+        catppuccin-qt5ct
     ];
 
     programs.spicetify = {
