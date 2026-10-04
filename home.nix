@@ -1,4 +1,4 @@
-{config, pkgs, lib, inputs, ...}:
+{config, pkgs, pkgs-unstable, lib, inputs, ...}:
 let
     spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
     flavor = "mocha";
@@ -93,8 +93,8 @@ in {
         android-tools
         nicotine-plus
         musescore
-        osu-lazer-bin
         strawberry
+        pkgs-unstable.osu-lazer-bin
         
         quickemu
         nautilus

@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-26.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     catppuccin.url = "github:catppuccin/nix/release-26.05";
     musnix = {
@@ -16,7 +17,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, catppuccin, musnix, ... } @ inputs: 
+  outputs = { nixpkgs, nixpkgs-unstable, home-manager, catppuccin, musnix, ... } @ inputs: 
   {
     # desktop configuration
     nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
@@ -31,7 +32,13 @@
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "back";
           home-manager.users.ethan = import ./home.nix;
-          home-manager.extraSpecialArgs = { inherit inputs; };
+          home-manager.extraSpecialArgs = { 
+            inherit inputs; 
+            pkgs-unstable = import nixpkgs-unstable {
+              config = { allowUnfree = true; };
+              system = "x86_64-linux";
+            };
+          };
         }
       ];
     };
