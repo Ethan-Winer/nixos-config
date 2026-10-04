@@ -10,7 +10,7 @@
   # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
-  boot.loader.grub.useOSProber = true;
+  # boot.loader.grub.useOSProber = true;
 
 
   # Graphics
@@ -147,6 +147,17 @@
   };
 
   environment.variables = {
+
+  };
+
+  fileSystems."/mnt/shared-drive" = {
+    device = "/dev/disk/by-uuid/DA58D6E458D6BF07";
+    fsType="ntfs";
+    options = [
+      "users"
+      "nofail"
+      "exec"
+    ];
 
   };
 

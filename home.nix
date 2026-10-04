@@ -114,6 +114,7 @@ in {
         # nodejs_26
         # dotnet-sdk_10
         penpot-desktop
+        python315
 
         #3D Printing
         freecad
