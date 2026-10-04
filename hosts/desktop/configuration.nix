@@ -8,9 +8,16 @@
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
   
   # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
-  # boot.loader.grub.useOSProber = true;
+  boot.loader = {
+	efi.canTouchEfiVariables = true;
+	systemd-boot.enable = false;
+	grub = {
+		enable = true;
+		efiSupport = true;
+		device = "nodev";
+		useOSProber = true;
+	};
+};
 
 
   # Graphics
