@@ -1,12 +1,11 @@
 {config, pkgs, pkgs-unstable, lib, inputs, ...}:
 let
-    spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
     flavor = "mocha";
     accent = "lavender";
 in {
     imports = [
-        inputs.spicetify-nix.homeManagerModules.default
         inputs.catppuccin.homeModules.catppuccin
+        inputs.noctalia.homeModules.default
     ];
 
     home.username = "ethan";
@@ -106,8 +105,8 @@ in {
         cava
         asciiquarium
 
-        noctalia-shell
-        noctalia
+        # noctalia-shell
+        # noctalia
 
         #coding
         jetbrains.rider
@@ -135,16 +134,9 @@ in {
         catppuccin-qt5ct
     ];
 
-    programs.spicetify = {
+    programs.noctalia = {
         enable = true;
-        wayland = true;
-        enabledExtensions = with spicePkgs.extensions; [
-            adblockify
-            hidePodcasts
-            shuffle
-        ];
-        theme = spicePkgs.themes.catppuccin;
-        colorScheme = "${flavor}";
+        settings = builtins.fromTOML (builtins.readFile ./configs/noctalia/settings.toml);
     };
 
     catppuccin = {
@@ -189,7 +181,5 @@ in {
     # Symlinks
     xdg.configFile."niri/config.kdl".source = ./configs/niri/config.kdl;
     xdg.configFile."alacritty/alacritty.toml".source = ./configs/alacritty/alacritty.toml;
-    # xdg.configFile."noctalia/settings.json".source = ./configs/noctalia/settings.json;
-    xdg.configFile."noctalia/settings.toml".source = ./configs/noctalia/settings.toml;
     home.stateVersion = "26.05";
 }

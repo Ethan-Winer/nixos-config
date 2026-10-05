@@ -1,4 +1,4 @@
-config_version = 14
+config_version = 15
 
 [bar.default]
 background_opacity = 0.74999998323619366
@@ -58,8 +58,9 @@ widget_order = [ "lockscreen-login-box@DP-2" ]
 
 [theme]
 builtin = "Catppuccin"
+community_palette = "Catppuccin Mocha Lavender"
 mode = "dark"
-source = "builtin"
+source = "community"
 wallpaper_scheme = "m3-content"
 
 [wallpaper]
@@ -67,19 +68,6 @@ directory = "/home/ethan/nixos-config/wallpapers"
 
     [wallpaper.automation]
     enabled = true
-
-    [wallpaper.default]
-    path = "/home/ethan/nixos-config/wallpapers/cottages-river.png"
-
-    [wallpaper.last]
-    path = "/home/ethan/nixos-config/wallpapers/cottages-river.png"
-
-    [wallpaper.monitors.DP-2]
-    path = "/home/ethan/nixos-config/wallpapers/cottages-river.png"
-
-    [[wallpaper.favorite]]
-    path = "/home/ethan/nixos-config/wallpapers/dominik-mayer-24.jpg"
-    theme_mode = "auto"
 
 [widget.network]
 show_label = false
@@ -92,7 +80,3 @@ show_label = false
 
 [widget.workspaces]
 show_labels = false
-
-[theme]
-source = "community"
-community_palette = "Catppuccin Mocha Lavender"
