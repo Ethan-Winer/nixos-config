@@ -632,9 +632,12 @@ binds {
     // Mod+Shift+P { power-off-monitors; }
     
     // My keybinds
-    Mod+Space { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
-    Mod+L { spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
-    Ctrl+Alt+Delete { spawn "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }
+    // Mod+Space { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    Mod+Space { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
+    // Mod+L { spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
+    Mod+L { spawn "noctalia" "msg" "session" "lock"; }
+    // Ctrl+Alt+Delete { spawn "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }
+    Ctrl+Alt+Delete { spawn "noctalia" "msg" "panel-toggle" "session"; }
     Mod+B { spawn "firefox"; }
     Mod+S { spawn "spotify"; }
 }
@@ -662,7 +665,8 @@ output "DP-2" {
 }
 
 switch-events {
-    lid-close { spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
+    // lid-close { spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
+    lid-close { spawn "noctalia" "msg" "session" "lock"; }
 }
 
 // noctalia stuff
@@ -675,4 +679,5 @@ layer-rule {
   place-within-backdrop true
 }
 
-spawn-at-startup "noctalia-shell"
+// spawn-at-startup "noctalia-shell"
+spawn-at-startup "noctalia"

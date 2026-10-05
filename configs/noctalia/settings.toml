@@ -1,0 +1,98 @@
+config_version = 14
+
+[bar.default]
+background_opacity = 0.74999998323619366
+center = [ "media" ]
+concave_edge_corners = false
+end = [ "tray", "volume", "network", "brightness", "clock", "battery", "session" ]
+margin_edge = 12
+margin_ends = 128
+scale = 1.1500000096857548
+start = [ "workspaces" ]
+thickness = 48
+widget_spacing = 10
+
+[control_center]
+hidden_tabs = [ "system" ]
+sidebar = "full"
+
+[desktop_widgets]
+enabled = false
+
+[lockscreen_widgets]
+enabled = false
+schema_version = 2
+widget_order = [ "lockscreen-login-box@DP-2" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-2"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 1280.0
+    cy = 1258.0
+    output = "DP-2"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-2".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+[theme]
+builtin = "Catppuccin"
+mode = "dark"
+source = "builtin"
+wallpaper_scheme = "m3-content"
+
+[wallpaper]
+directory = "/home/ethan/nixos-config/wallpapers"
+
+    [wallpaper.automation]
+    enabled = true
+
+    [wallpaper.default]
+    path = "/home/ethan/nixos-config/wallpapers/cottages-river.png"
+
+    [wallpaper.last]
+    path = "/home/ethan/nixos-config/wallpapers/cottages-river.png"
+
+    [wallpaper.monitors.DP-2]
+    path = "/home/ethan/nixos-config/wallpapers/cottages-river.png"
+
+    [[wallpaper.favorite]]
+    path = "/home/ethan/nixos-config/wallpapers/dominik-mayer-24.jpg"
+    theme_mode = "auto"
+
+[widget.network]
+show_label = false
+
+[widget.tray]
+drawer = true
+
+[widget.volume]
+show_label = false
+
+[widget.workspaces]
+show_labels = false
+
+[theme]
+source = "community"
+community_palette = "Catppuccin Mocha Lavender"

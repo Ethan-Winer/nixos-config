@@ -107,6 +107,7 @@ in {
         asciiquarium
 
         noctalia-shell
+        noctalia
 
         #coding
         jetbrains.rider
@@ -188,7 +189,7 @@ in {
     # Symlinks
     xdg.configFile."niri/config.kdl".source = ./configs/niri/config.kdl;
     xdg.configFile."alacritty/alacritty.toml".source = ./configs/alacritty/alacritty.toml;
-    xdg.configFile."noctalia/settings.json".source = ./configs/noctalia/settings.json;
-
+    # xdg.configFile."noctalia/settings.json".source = ./configs/noctalia/settings.json;
+    xdg.configFile."noctalia/settings.toml".source = ./configs/noctalia/settings.toml;
     home.stateVersion = "26.05";
 }
