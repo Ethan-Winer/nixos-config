@@ -85,7 +85,7 @@ in {
         readest
         libreoffice-qt-fresh
         davinci-resolve
-        google-chrome
+        # google-chrome
         unzip
         gnome-clocks
         gnome-disk-utility
