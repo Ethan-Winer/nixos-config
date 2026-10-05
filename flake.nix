@@ -59,7 +59,13 @@
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "back";
           home-manager.users.ethan = import ./home.nix;
-          home-manager.extraSpecialArgs = { inherit inputs; };
+          home-manager.extraSpecialArgs = { 
+            inherit inputs; 
+            pkgs-unstable = import nixpkgs-unstable {
+              config = { allowUnfree = true; };
+              system = "x86_64-linux";
+            };
+          };
         }
       ];
     };
